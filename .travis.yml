@@ -1,0 +1,13 @@
+language: scala
+scala:
+- 2.11.7
+jdk:
+- oraclejdk8
+script:
+- sbt ++$TRAVIS_SCALA_VERSION tested/test
+# Tricks to avoid unnecessary cache updates, from
+# http://www.scala-sbt.org/0.13/docs/Travis-CI-with-sbt.html
+#- find $HOME/.sbt -name "*.lock" | xargs rm
+#- find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+#- find $HOME/.ivy2/cache/com.lihaoyi -name "ammonite-*" | xargs rm -rf
+sudo: false
